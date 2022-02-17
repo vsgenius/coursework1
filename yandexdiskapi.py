@@ -41,7 +41,7 @@ class YandexDiskApi:
 
     def get_href_list(self, url_photo, headers, path='Netology_CourseWork_1'):
         url = 'https://cloud-api.yandex.net/v1/disk/resources/upload/'
-        path = f'{os.path.sep}{path}{os.path.sep}'
+        path = f'/{path}/'
         file_name = url_photo['file_name'] + '.jpg'
         file_name_with_date = str(url_photo['file_name']) + str(url_photo['date']) + '.jpg'
         if self.check_name(url_photo['file_name'], self.list_file):
@@ -77,7 +77,7 @@ class YandexDiskApi:
             else:
                 result = False
             num +=1
-            time.sleep(0.1)
+            time.sleep(0.01)
         bar.finish()
         if not result:
             print('Files uploaded with errors')
